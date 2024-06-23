@@ -94,9 +94,29 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('IMAGE PICKER'),
+      appBar: PreferredSize(
+        preferredSize:
+            Size.fromHeight(80.0), // Adjust this according to your design
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              bottom: BorderSide(
+                  width: 2.0, color: Colors.blue), // Blue border bottom
+            ),
+          ),
+          child: AppBar(
+            title: const Text(
+              'APPLY & PAY YOUR VISA',
+              style: TextStyle(
+                fontFamily: 'Times New Roman',
+                fontSize: 25,
+                color: Colors.black,
+              ),
+            ),
+            backgroundColor: Colors.yellow,
+            centerTitle: true,
+          ),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -123,11 +143,15 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
                             height: 170,
                             fit: BoxFit.cover,
                           )
-                        : Image.network(
-                            'https://upload.wikimedia.org/wikipedia/commons/5/5f/Alberto_conversi_profile_pic.jpg',
+                        : Container(
                             width: 170,
                             height: 170,
-                            fit: BoxFit.cover,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage("image/idbdVJ3dte.jpeg"),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                   ),
                 ),
@@ -149,14 +173,30 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
           const SizedBox(
             height: 20,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton.icon(
-              onPressed: imagePickerOption,
-              icon: const Icon(Icons.add_a_photo_sharp),
-              label: const Text('UPLOAD IMAGE'),
-            ),
-          )
+         Padding(
+  padding: const EdgeInsets.all(8.0),
+  child: SizedBox(
+    width: MediaQuery.of(context).size.width * 0.4,
+    child: ElevatedButton.icon(
+      onPressed: imagePickerOption,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue,
+      ),
+      icon: Icon(
+        Icons.add_a_photo_sharp,
+        color: Colors.black,
+      ),
+      label: Text(
+        'APPLY HERE',
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
+    ),
+  ),
+)
+
         ],
       ),
     );
