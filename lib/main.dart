@@ -1,5 +1,6 @@
 import 'package:camerapick/upload_profile_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'IMAGE PICKER',
       theme: ThemeData(
