@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,32 +31,26 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Text(
-                    "Pick Image From",
+                    "Picture Your Document",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   ElevatedButton.icon(
                     onPressed: () {
-                      pickImage(ImageSource
-                          .camera); // Call pickImage with camera source
+                      pickImage(ImageSource.camera); // Call pickImage with camera source
                     },
                     icon: const Icon(Icons.camera),
                     label: const Text("CAMERA"),
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
-                      pickImage(ImageSource
-                          .gallery); // Call pickImage with gallery source
+                      pickImage(ImageSource.gallery); // Call pickImage with gallery source
                     },
                     icon: const Icon(Icons.image),
                     label: const Text("GALLERY"),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                   ElevatedButton.icon(
                     onPressed: () {
                       Get.back(); // Close bottom sheet on cancel
@@ -95,13 +88,11 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize:
-            Size.fromHeight(80.0), // Adjust this according to your design
+        preferredSize: Size.fromHeight(80.0), // Adjust this according to your design
         child: Container(
           decoration: BoxDecoration(
             border: Border(
-              bottom: BorderSide(
-                  width: 2.0, color: Colors.blue), // Blue border bottom
+              bottom: BorderSide(width: 2.0, color: Colors.blue), // Blue border bottom
             ),
           ),
           child: AppBar(
@@ -113,7 +104,7 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
                 color: Colors.black,
               ),
             ),
-            backgroundColor: Colors.yellow,
+            backgroundColor: Color.fromARGB(255, 232, 191, 44),
             centerTitle: true,
           ),
         ),
@@ -121,9 +112,23 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(
-            height: 50,
+          const SizedBox(height: 1),
+          Container(
+            width: double.infinity,
+            height: 90,
+           color: Color(0xFF317AF7),// Blue background color
+            child: const Center(
+              child: Text(
+                'Welcome',
+                style: TextStyle(
+                  fontFamily: 'Times New Roman',
+                  fontSize: 29,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ),
+          const SizedBox(height: 20),
           Align(
             alignment: Alignment.center,
             child: Stack(
@@ -166,37 +171,39 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
                       size: 30,
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
          Padding(
-  padding: const EdgeInsets.all(8.0),
-  child: SizedBox(
-    width: MediaQuery.of(context).size.width * 0.4,
-    child: ElevatedButton.icon(
-      onPressed: imagePickerOption,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blue,
-      ),
-      icon: Icon(
-        Icons.add_a_photo_sharp,
-        color: Colors.black,
-      ),
-      label: Text(
-        'APPLY HERE',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-      ),
-    ),
-  ),
-)
-
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.38,
+                child: ElevatedButton.icon(
+                  onPressed: imagePickerOption,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:  Color(0xFF317AF7),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(3.0),
+                    ),
+                  ),
+                  icon: const Icon(
+                    Icons.add_a_photo_sharp,
+                    color: Colors.black,
+                  ),
+                  label: const Text(
+                    'APPLY HERE',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
