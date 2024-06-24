@@ -40,6 +40,10 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
                     onPressed: () {
                       pickImage(ImageSource.camera); // Call pickImage with camera source
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey, // Set background color to red
+                      foregroundColor: Colors.black, // Set text color to white
+                    ),
                     icon: const Icon(Icons.camera),
                     label: const Text("CAMERA"),
                   ),
@@ -55,6 +59,10 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
                     onPressed: () {
                       Get.back(); // Close bottom sheet on cancel
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red, // Set background color to red
+                      foregroundColor: Colors.white, // Set text color to white
+                    ),
                     icon: const Icon(Icons.close),
                     label: const Text("CANCEL"),
                   ),
@@ -192,6 +200,13 @@ class _UploadProfileImageState extends State<UploadProfileImage> {
                   icon: const Icon(
                     Icons.add_a_photo_sharp,
                     color: Colors.black,
+                  ),
+                  label: const Text(
+                    'APPLY HERE',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                   label: const Text(
                     'APPLY HERE',
